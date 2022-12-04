@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
+import classes from '../styles/MainNavigation.module.css';
+import Logo from "./Logo";
 
 const PageHeader = () => {
     return (
-        <header className="App-header">
-            Header
-            <Link to="/">Main page</Link>
-            <Link to="/new">New post</Link>
-            <Link to="/top">Top posts</Link>
-        </header>
+        <div className={classes.header}>
+            <Logo />
+            <ul>
+                <li><Link to="/">Main page</Link></li>
+                <li><Link to="/top">Most popular</Link></li>
+            </ul>
+        </div>
     )
 }
 
