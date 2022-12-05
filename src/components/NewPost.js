@@ -9,7 +9,7 @@ const NewPost = () => {
     }
 
     return (
-            <form onFocus={_ => expandHandler(true)} onBlur={_ => expandHandler(false)} className={classes.form}>
+            <form onFocus={_ => expandHandler(true)} className={classes.form}>
                 <textarea className={isExpanded ? classes.formPreview :  undefined} name="content" required placeholder="Enter new post..." rows={isExpanded ? 5 : 1} />
                 {isExpanded && <input type="text" name="author" required placeholder="Your name..." />}
             </form>
