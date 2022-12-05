@@ -1,4 +1,12 @@
-const API_URL = "http://localhost:8080/api/";
-const API_KEY = "api_key";
+const URL = "http://localhost:8080/api/";
+const KEY = "api_key";
 
-export { API_URL, API_KEY };
+//endpoints:
+const API = {
+    POSTS: URL + "posts",
+    TOP: URL + "top",
+    NEW: URL + "post/new",
+    POST: URL + "post/"
+}
+
+export default API;

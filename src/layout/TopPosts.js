@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
 import { getTopPosts } from "../api/requests";
+import Panel from "../components/Panel";
+import Loader from "../components/Loader";
 
 const TopPosts = () => {
     let [posts, setPosts] = useState([]);
@@ -14,8 +16,8 @@ const TopPosts = () => {
 
     return (
         <div>
-            TOP POSTS
-            {loaderVisible && "LOADER"}
+            <Panel title="TOP POSTS">Top 10 most viewed posts</Panel>
+            {loaderVisible && <Loader />}
             {!loaderVisible && posts.map(post => <Post key={post.id} author={post.author} content={post.content} date={post.postDate} views={post.viewCount} />)}
         </div>
     );

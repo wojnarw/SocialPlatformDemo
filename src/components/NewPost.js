@@ -8,11 +8,21 @@ const NewPost = () => {
         setIsExpanded(visible);
     }
 
+    const submitHandler = (e, post) => {
+        e.preventDefault();
+        console.log(e);
+        console.log(post);
+    }
+
     return (
-            <form onFocus={_ => expandHandler(true)} className={classes.form}>
-                <textarea className={isExpanded ? classes.formPreview :  undefined} name="content" required placeholder="Enter new post..." rows={isExpanded ? 5 : 1} />
-                {isExpanded && <input type="text" name="author" required placeholder="Your name..." />}
-            </form>
+        <form onSubmit={submitHandler} onFocus={_ => expandHandler(true)} className={classes.form}>
+            <textarea className={isExpanded ? classes.formPreview : undefined} name="content" required placeholder="Enter new post..." rows={isExpanded ? 5 : 1} />
+            {isExpanded &&
+                <div className={classes.flexRow}>
+                    <input type="text" name="author" required placeholder="Your name..." />
+                    <button className={classes.sendBtn}>Add</button>
+                </div>}
+        </form>
     );
 }
 
