@@ -4,6 +4,7 @@ const KEY = "api_key";
 //endpoints:
 const API = {
     POSTS: URL + "posts",
+    LAST: URL + "posts/last",
     TOP: URL + "top",
     NEW: URL + "post/new",
     POST: URL + "post/"

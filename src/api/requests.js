@@ -7,10 +7,12 @@ const getPost = (id) => {
 const addNewPost = async(post) => {
     return await fetch(API.NEW, {
         method: "POST",
-        body: JSON.stringify(post)
+        body: JSON.stringify(post),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     .then(data => data.json());
-    // .catch(err => console.error(err));
 }
 
 const updatePost = (id) => {
@@ -20,13 +22,16 @@ const updatePost = (id) => {
 const getTopPosts = async() => {
     return await fetch(API.TOP)
     .then(data => data.json())
-    .catch(err => console.error(err));
 }
 
 const getAllPosts = async() => {
     return await fetch(API.POSTS)
     .then(data => data.json());
-    // .catch(err => console.error(err));
 }
 
-export { getPost, getAllPosts, getTopPosts, addNewPost, updatePost };
+const getLastPosts = async() => {
+    return await fetch(API.LAST)
+    .then(data => data.json());
+}
+
+export { getPost, getAllPosts, getTopPosts, addNewPost, updatePost, getLastPosts };

@@ -11,7 +11,8 @@ const TopPosts = () => {
     useEffect(_ => {
         getTopPosts()
             .then(data => setPosts(data))
-            .then(_ => setLoaderVisible(false));
+            .then(_ => setLoaderVisible(false))
+            .catch(err => console.error(err));
     }, []);
 
     return (
