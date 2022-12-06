@@ -10,7 +10,7 @@ const Post = (props) => {
             <div className={classes.postInfo}>
             <span>{props.date}</span> - <span>Views: {props.views}</span></div>
             { //append link if post if was passed
-            props.linkId ? <Link to={"post/" + props.linkId}><p>{props.content}</p></Link> : <p>{props.content}</p>}
+            props.linkId ? <Link className={classes.contentLink} to={"post/" + props.linkId}><p>{props.content}</p></Link> : <p>{props.content}</p>}
             
         </div>
     );

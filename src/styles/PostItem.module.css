@@ -11,6 +11,11 @@
   font-size: 0.8rem;
 }
 
+.contentLink {
+  color: inherit;
+  text-decoration: none;
+}
+
 .image {
   width: 100%;
   height: 20rem;
