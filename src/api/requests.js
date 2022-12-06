@@ -30,9 +30,14 @@ const getAllPosts = async() => {
     .then(data => data.json());
 }
 
+const getPostsByAuthor = async(author) => {
+    return await fetch(API.AUTHOR + author)
+    .then(data => data.json());
+}
+
 const getLastPosts = async() => {
     return await fetch(API.LAST)
     .then(data => data.json());
 }
 
-export { getPost, getAllPosts, getTopPosts, addNewPost, updatePost, getLastPosts };
+export { getPost, getAllPosts, getTopPosts, addNewPost, updatePost, getLastPosts, getPostsByAuthor };

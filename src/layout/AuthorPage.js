@@ -1,36 +1,31 @@
-import { useState, useEffect } from "react";
-import { getLastPosts } from "../api/requests";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getPostsByAuthor } from "../api/requests";
 import Loader from "../components/Loader";
-import NewPost from "../components/NewPost";
 import Panel from "../components/Panel";
 import Post from "../components/Post";
 
-const MainPage = () => {
+const AuthorPage = () => {
     let [posts, setPosts] = useState([]);
     let [loaderVisible, setLoaderVisible] = useState(true);
     let [errorMsg, setErrorMsg] = useState();
+    let { authorName } = useParams();
     const maxPostLength = 256;
 
-    const updatePostsHandler = (newPost) => {
-        if(newPost) setPosts([newPost, ...posts]);
-        else { //API didn't return updated object, meaning it was not added
-            setErrorMsg("err");
-        }
-    }
-
     useEffect(_ => {
-        getLastPosts()
-            .then(data => setPosts(data))
-            .then(_ => setLoaderVisible(false))
+        getPostsByAuthor(authorName)
+            .then(data => {
+                setLoaderVisible(false);
+                setPosts(data);
+            })
             .catch(err => {
                 console.error(err);
-                setErrorMsg(err);
+                setErrorMsg("err");
             });
     }, []);
 
     return (
         <div>
-            <NewPost updatePosts={updatePostsHandler} />
             {loaderVisible && <Loader />}
             {errorMsg && <Panel title="Error">{errorMsg}</Panel>}
             {posts && posts.map(post => {
@@ -40,7 +35,7 @@ const MainPage = () => {
                     date={post.postDate} views={post.viewCount} linkId={post.id} />
             })}
         </div>
-    );
+    )
 }
 
-export default MainPage;
+export default AuthorPage;

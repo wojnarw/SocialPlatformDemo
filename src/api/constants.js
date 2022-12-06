@@ -7,7 +7,8 @@ const API = {
     LAST: URL + "posts/last",
     TOP: URL + "top",
     NEW: URL + "post/new",
-    POST: URL + "post/"
+    POST: URL + "post/",
+    AUTHOR: URL + "author/"
 }
 
 export default API;

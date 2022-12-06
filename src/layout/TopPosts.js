@@ -19,7 +19,7 @@ const TopPosts = () => {
         <div>
             <Panel title="TOP POSTS">Top 10 most viewed posts</Panel>
             {loaderVisible && <Loader />}
-            {!loaderVisible && posts.map(post => <Post key={post.id} author={post.author} content={post.content} date={post.postDate} views={post.viewCount} linkId={post.id} />)}
+            {posts && posts.map(post => <Post key={post.id} author={post.author} content={post.content} date={post.postDate} views={post.viewCount} linkId={post.id} />)}
         </div>
     );
 }
