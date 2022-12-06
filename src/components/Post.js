@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "../styles/PostItem.module.css";
 
 const Post = (props) => {
@@ -8,7 +9,9 @@ const Post = (props) => {
             <h2>{props.author}</h2>
             <div className={classes.postInfo}>
             <span>{props.date}</span> - <span>Views: {props.views}</span></div>
-            <p>{props.content}</p>
+            { //append link if post if was passed
+            props.linkId ? <Link to={"post/" + props.linkId}><p>{props.content}</p></Link> : <p>{props.content}</p>}
+            
         </div>
     );
 }

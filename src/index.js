@@ -6,6 +6,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //TODO: strict mode rerenders components and causes double requests to API in useEffect
   <React.StrictMode>
     <BrowserRouter>
       <App />

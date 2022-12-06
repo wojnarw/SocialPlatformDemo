@@ -1,7 +1,8 @@
 import API from "./constants";
 
-const getPost = (id) => {
-    return true;
+const getPost = async(id) => {
+    return await fetch(API.POST + id)
+    .then(data => data.json());
 }
 
 const addNewPost = async(post) => {
