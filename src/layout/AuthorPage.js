@@ -26,12 +26,13 @@ const AuthorPage = () => {
 
     return (
         <div>
+            <Panel title={authorName}>Posts written by {authorName}</Panel>
             {loaderVisible && <Loader />}
             {errorMsg && <Panel title="Error">{errorMsg}</Panel>}
             {posts && posts.map(post => {
                 const trimmedContent = post.content.substring(0, maxPostLength) + (post.content.length > 256 ? "..." : "")
 
-                return <Post key={post.id} author={post.author} content={trimmedContent}
+                return <Post key={post.id} content={trimmedContent}
                     date={post.postDate} views={post.viewCount} linkId={post.id} />
             })}
         </div>
